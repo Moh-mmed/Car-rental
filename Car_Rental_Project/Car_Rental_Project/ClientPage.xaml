@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rental_Project.ClientPage"
+             IconImageSource="group_add.png">
+<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5, 10">
+                <StackLayout>
+                    <Grid Padding="5" HeightRequest="300" BackgroundColor="AntiqueWhite">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="First Name:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                        <Entry x:Name="F_NAME_CL" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"></Entry>
+
+                        <Label Text="Last Name:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                        <Entry x:Name="L_NAME" Text="Ben Aoumeur" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Text="License ID:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
+                        <Entry x:Name="LICENSE" Text="562874569" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
+
+                        <Label Text="Phone:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
+                        <Entry x:Name="PHONE" Text="252 0256 325" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
+
+                        <Label Text="Address:" FontSize="20" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
+                        <Entry x:Name="ADDRESS" Text="Freedom avenue, 15000" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
+
+                        <Label Text="Gender:" FontSize="20" FontAttributes="Bold"  Grid.Row="5" Grid.Column="0"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="1">
+                            <RadioButton Content="Male" Value="male" IsChecked="True" GroupName="gender" />
+                            <RadioButton Content="Female" Value="female" GroupName="gender"/>
+                        </StackLayout>
+                    </Grid>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Button x:Name="Add_Button" 
+                        Text="Add" 
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        WidthRequest="150"
+                        HeightRequest="60"
+                        Margin="20, 0"
+                        CornerRadius="15"/>
+                        <Button x:Name="Update_Button" 
+                        Text="Update"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        WidthRequest="150"
+                        HeightRequest="60"
+                        Margin="20, 0"
+                        CornerRadius="15"/>
+                    </StackLayout>
+                </StackLayout>
+                <BoxView VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Margin="0,10, 0, 0"      
+               HeightRequest="3"
+               WidthRequest="400"  
+               Color="#5b5d68"/>
+                <StackLayout>
+                    <Label Text="Clients:" FontSize="28" 
+                       FontAttributes="Bold"            
+                       TextDecorations="Underline"/>
+                    <ListView x:Name="CLIENTS_LIST" 
+                          HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="0" 
+                    Margin="0, 10"
+                    CornerRadius="15" 
+                    BackgroundColor="#E9E9E9" 
+                    VerticalOptions="Start" 
+                    HasShadow="True" 
+                    OutlineColor="LightGray">
+                                        <StackLayout Orientation="Horizontal" Padding="10, 10" >
+                                            <StackLayout Padding="1">
+                                                <Frame CornerRadius="100" 
+                                HeightRequest="70"
+                                WidthRequest="70"
+                                HorizontalOptions="Center"
+                                Padding="0"
+                                IsClippedToBounds="True">
+                                                    <Image Source="male.png" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" 
+                                    Aspect="AspectFit"/>
+                                                </Frame>
+                                            </StackLayout>
+                                            <StackLayout Padding="5" >
+                                                <Grid HeightRequest="100" WidthRequest="270">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="2*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="Name:" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                                    <Label x:Name="CLIENT_NAME" FontSize="18" Grid.Row="0" Grid.Column="1">Mohamemd Ben Aoumeur</Label>
+
+                                                    <Label Text="License ID:" FontSize="18" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                                                    <Label x:Name="CLIENT_LICENSE" FontSize="18" Grid.Row="1" Grid.Column="1">156489852</Label>
+
+                                                    <Label Text="Address:" FontSize="18" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
+                                                    <Label x:Name="CLIENT_ADDRESS" FontSize="18" Grid.Row="2" Grid.Column="1">Freedom avenue, 15000</Label>
+
+                                                    <Label Text="Phone:" FontSize="18" FontAttributes="Bold"  Grid.Row="3" Grid.Column="0"/>
+                                                    <Label x:Name="PHONE_NUM" FontSize="18" Grid.Row="3" Grid.Column="1">215 269 8956</Label>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" Padding="5, 0" >
+                                                <!-- Delete -->
+                                                <ImageButton Source="delete.png" 
+                                                        WidthRequest="{OnPlatform iOS=25, Android=25}"
+                                                      
+                                         />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

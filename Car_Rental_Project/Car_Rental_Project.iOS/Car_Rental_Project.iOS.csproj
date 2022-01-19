@@ -133,4 +133,43 @@
       <Name>Car_Rental_Project</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\format_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\group_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car_rental.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CAR01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CAR02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CAR03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CAR04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CAR05.jpg" />
+  </ItemGroup>
 </Project>

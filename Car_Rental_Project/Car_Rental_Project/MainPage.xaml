@@ -4,5 +4,8 @@
              x:Class="Car_Rental_Project.MainPage"
              xmlns:local="clr-namespace:Car_Rental_Project">
 
-
+    <local:HomePage></local:HomePage>
+    <local:ClientPage></local:ClientPage>
+    <local:CarPage></local:CarPage>
+    <local:RentPage></local:RentPage>
 </TabbedPage>

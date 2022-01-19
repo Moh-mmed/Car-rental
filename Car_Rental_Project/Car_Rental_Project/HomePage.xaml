@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rental_Project.HomePage"
+             IconImageSource="format_list.png">
+<ContentPage.Content>
+    <ScrollView>
+        <StackLayout Padding="10, 5" VerticalOptions="CenterAndExpand">
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="0" 
+                                Margin="0, 10"
+                                CornerRadius="15" 
+                                BackgroundColor="#E9E9E9" 
+                                VerticalOptions="Start" 
+                                HasShadow="True" 
+                                OutlineColor="LightGray">
+                                <StackLayout Orientation="Horizontal" Padding="10, 10" >
+                                    <StackLayout Padding="1">
+                                        <Frame CornerRadius="100" 
+                                            HeightRequest="100"
+                                            WidthRequest="117"
+                                            HorizontalOptions="Center"
+                                            Padding="0"
+                                            IsClippedToBounds="True">
+                                            <Image Source="CAR01.jpg" 
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center" 
+                                                Aspect="AspectFit"/>
+                                        </Frame>
+                                    </StackLayout>
+                                    <StackLayout Padding="5" >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="Tenant:" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                                            <Label x:Name="Tenant" FontSize="14" Grid.Row="0" Grid.Column="1">Mohammed Ben Aoumeur</Label>
+
+                                            <Label Text="Car:" FontSize="18" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                                            <Label x:Name="Car" FontSize="15" Grid.Row="1" Grid.Column="1">Toyota, V8 Diesel</Label>
+
+                                            <Label Text="Price:" FontSize="18" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
+                                            <Label x:Name="Price" FontSize="15" Grid.Row="2" Grid.Column="1">$45/day</Label>
+
+                                            <Label Text="Deposit:" FontSize="18" FontAttributes="Bold"  Grid.Row="3" Grid.Column="0"/>
+                                            <Label x:Name="Deposit" FontSize="15" Grid.Row="3" Grid.Column="1">$2000</Label>
+
+                                            <Label Text="Rented On:" FontSize="18" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
+                                            <Label x:Name="Date" FontSize="15" Grid.Row="4" Grid.Column="1">18th Oct 2021</Label>
+                                        </Grid>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" Padding="5, 0" >
+                                        <!-- Delete -->
+                                        <ImageButton Source="delete.png" WidthRequest="{OnPlatform iOS=25, Android=25}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage.Content>
+</ContentPage>
