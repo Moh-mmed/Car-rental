@@ -49,7 +49,7 @@ namespace Car_Rental_Project
             CarMileage.Text = car_tabbed.Mileage.ToString();
             CarPrice.Text = car_tabbed.Price.ToString();
 
-           // string imgurl = car_tabbed.ImageURL;
+            //string imgurl = car_tabbed.ImageURL;
             //int index = imgurl.IndexOf(".jpg");
             //CarImage.SelectedIndex = imgurl.Substring(0, index);
             //CarImage.Text = car_tabbed.ImageURL.ToString();
@@ -65,7 +65,7 @@ namespace Car_Rental_Project
                 Car_Rec.Fuel = CarFuel.Text.Trim();
                 Car_Rec.Mileage = double.Parse(CarMileage.Text.Trim());
                 Car_Rec.Price = double.Parse(CarPrice.Text.Trim());
-                Car_Rec.ImageURL = CarImage.SelectedItem.ToString() + ".jpg".Trim();
+                Car_Rec.ImageURL = CarImage.SelectedItem.ToString() + ".jpg";
 
                 ConnectionClass.Conn.Update(Car_Rec);
                 Selected_Item_PK = -1;
@@ -98,13 +98,13 @@ namespace Car_Rental_Project
         private void Button_Clicked(object sender, EventArgs e)
         {
             Show_List();
+            show_btn.IsVisible = false;
+            CARS_LIST.IsVisible = true;
         }
         private void Show_List()
-        {
-            show_btn.IsVisible = false;
+        {  
             var data = (from car in ConnectionClass.Conn.Table<Car>() select car);
             CARS_LIST.ItemsSource = data;
-            CARS_LIST.IsVisible = true;
         }
 
     }

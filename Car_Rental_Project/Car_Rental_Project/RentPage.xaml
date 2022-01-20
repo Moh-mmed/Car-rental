@@ -5,38 +5,89 @@
              IconImageSource="car_rental.png">
     <ContentPage.Content>
         <StackLayout>
-            <!-- <DatePicker MinimumDate="1/1/1948" MaximumDate="12/31/2007"/>-->
-            <Grid Padding="5,30" HeightRequest="200" BackgroundColor="AntiqueWhite">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
+            <StackLayout x:Name="LoadDataWrapper" IsVisible="true" VerticalOptions="CenterAndExpand" Margin="100">
+                <Button x:Name="LoadDataWrapper_Button" 
+                        Text="Load Data" 
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        WidthRequest="135"
+                        HeightRequest="60"
+                        CornerRadius="15"
+                        Clicked="LoadDataWrapper_Button_Clicked"/>
+            </StackLayout>
+            <StackLayout x:Name="DataWrapper" IsVisible="false">
+                <Grid Padding="5,30" BackgroundColor="AntiqueWhite">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
 
-                <Label Text="Tenant:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                <Entry x:Name="TENANT" Text="Moha" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="Tenant:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                    <ScrollView HeightRequest="100" WidthRequest="300" Grid.Row="0" Grid.Column="1" BackgroundColor="#fff8e7">
+                            <ListView x:Name="CLIENTS_LIST_ITEMS" HasUnevenRows="True" ItemTapped="CLIENTS_LIST_ITEMS_ItemTapped" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="16" Text="{Binding FName}"/>
+                                            <Label FontSize="16" Text="{Binding LName}"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollView>
 
-                <Label Text="Car:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
-                <Entry x:Name="CAR" Text="V8, TOYOTA" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Car:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                    <ScrollView HeightRequest="100"  Grid.Row="1" Grid.Column="1" BackgroundColor="#fff8e7">
+                            <ListView x:Name="CARS_LIST_ITEMS" HasUnevenRows="True" ItemTapped="CARS_LIST_ITEMS_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontSize="16" Text="{Binding Brand}"/>
+                                            <Label FontSize="16" Text="{Binding Model}"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollView>
+                    </Grid>
 
-                <Label Text="Duration:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
-                <Entry x:Name="DURATION" Text="one week" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
+                <Grid Padding="5,10" BackgroundColor="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Label Text="Deposit:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
-                <Entry x:Name="DEPOSIT" Text="152000" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
-            </Grid>
-            <Button x:Name="Rent_Button" 
+                    <Label Text="Deposit:" FontSize="20" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                    <Entry x:Name="DEPOSIT" Keyboard="Numeric" FontSize="16" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+                <Button Text="Refresh" 
+                        FontSize="26"
+                        FontAttributes="Bold"
+                        HeightRequest="70"
+                        Margin="60, 30"
+                        CornerRadius="15" Clicked="Button_Clicked"  BackgroundColor="#ffe135"/>
+                <Button x:Name="Rent_Button" 
                         Text="Rent" 
                         FontSize="26"
                         FontAttributes="Bold"
                         HeightRequest="70"
-                        Margin="60, 50"
-                        CornerRadius="15"/>
+                        Margin="60, 30"
+                        CornerRadius="15"
+                        BackgroundColor="#318ce7"
+                        Clicked="Rent_Button_Clicked"/>
+            </StackLayout>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

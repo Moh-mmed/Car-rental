@@ -6,10 +6,11 @@ namespace Car_Rental_Project._DB
 {
     class Rent
     {
-        [PrimaryKey]
-        public int CAR_ID { get; set; }
+        public string CAR { get; set; }
         public string TENANT_NAME { get; set; }
         public double DEPOSIT { get; set; }
-        public DateTime RENT_DATE { get; set; }
+        public string PRICE { get; set; }
+        public string IMGURL { get; set; }
+        public string RENT_DATE { get; set; }
     }
 }

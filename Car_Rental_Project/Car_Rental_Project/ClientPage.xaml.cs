@@ -108,13 +108,14 @@ namespace Car_Rental_Project
         private void Button_Clicked(object sender, EventArgs e)
         {
             Show_List();
+            show_btn.IsVisible = false;
+            CLIENTS_LIST.IsVisible = true;
         }
         private void Show_List()
         {
-            show_btn.IsVisible = false;
+
             var data = (from client in ConnectionClass.Conn.Table<Client>() select client);
             CLIENTS_LIST.ItemsSource = data;
-            CLIENTS_LIST.IsVisible = true;
         }
     }
 }

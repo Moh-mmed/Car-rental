@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Car_Rental_Project._DB;
 
 namespace Car_Rental_Project
 {
@@ -15,6 +16,28 @@ namespace Car_Rental_Project
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void LoadDataWrapper_Button_Clicked(object sender, EventArgs e)
+        {
+            Show_List();
+            LoadDataWrapper.IsVisible = false;
+            DataWrapper.IsVisible = true;
+        }
+        private void Show_List()
+        {
+            var data = (from car in ConnectionClass.Conn.Table<Rent>() select car);
+            RENT_LIST_ITEMS.ItemsSource = data;
+        }
+
+        private void RENT_LIST_ITEMS_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Show_List();
         }
     }
 }

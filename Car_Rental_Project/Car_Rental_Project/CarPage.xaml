@@ -4,55 +4,54 @@
              x:Class="Car_Rental_Project.CarPage"
              IconImageSource="cars.png">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="5, 10">
-                <StackLayout>
-                    <Grid Padding="5" HeightRequest="300" BackgroundColor="AntiqueWhite">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Label Text="Brand:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                        <Entry x:Name="CarBrand" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"></Entry>
+        <StackLayout Padding="5, 10">
+            <StackLayout>
+                <Grid Padding="5" HeightRequest="300" BackgroundColor="#ffe4c4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3  *"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Label Text="Model:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
-                        <Entry x:Name="CarModel" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="Brand:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                    <Entry x:Name="CarBrand" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"></Entry>
 
-                        <Label Text="Fuel:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
-                        <Entry x:Name="CarFuel" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="Model:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                    <Entry x:Name="CarModel" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
 
-                        <Label Text="Mileage:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
-                        <Entry x:Name="CarMileage" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="Fuel:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
+                    <Entry x:Name="CarFuel" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
 
-                        <Label Text="Price:" FontSize="20" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
-                        <Entry x:Name="CarPrice" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
+                    <Label Text="Mileage:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
+                    <Entry x:Name="CarMileage" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
 
-                        <Label Text="Image:" FontSize="20" FontAttributes="Bold"  Grid.Row="5" Grid.Column="0"/>
-                        <!--<Entry x:Name="CarImage" FontSize="16" Margin="0,-15,0,0" Grid.Row="5" Grid.Column="1"/>-->
-                        <Picker x:Name="CarImage" Grid.Row="5" Grid.Column="1" FontSize="16" Margin="0,-15,0,0">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>SELECT A CAR:</x:String>
-                                    <x:String>CAR01</x:String>
-                                    <x:String>CAR02</x:String>
-                                    <x:String>CAR03</x:String>
-                                    <x:String>CAR04</x:String>
-                                    <x:String>CAR05</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                    </Grid>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
-                        <Button x:Name="Add_Button" 
+                    <Label Text="Price:" FontSize="20" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
+                    <Entry x:Name="CarPrice" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
+
+                    <Label Text="Image:" FontSize="20" FontAttributes="Bold"  Grid.Row="5" Grid.Column="0"/>
+                    <!--<Entry x:Name="CarImage" FontSize="16" Margin="0,-15,0,0" Grid.Row="5" Grid.Column="1"/>-->
+                    <Picker Title="SELECT A CAR:" x:Name="CarImage" Grid.Row="5" Grid.Column="1" FontSize="16" Margin="0,-15,0,0">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>CAR01</x:String>
+                                <x:String>CAR02</x:String>
+                                <x:String>CAR03</x:String>
+                                <x:String>CAR04</x:String>
+                                <x:String>CAR05</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
+                    <Button x:Name="Add_Button" 
                         Text="Add" 
                         FontSize="24"
                         FontAttributes="Bold"
@@ -60,8 +59,9 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                             BackgroundColor="#318ce7"
                         Clicked="Add_Button_Clicked"/>
-                        <Button x:Name="Update_Button" 
+                    <Button x:Name="Update_Button" 
                         Text="Update"
                         FontSize="24"
                         FontAttributes="Bold"
@@ -69,8 +69,9 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                            BackgroundColor="#00cc99"
                         Clicked="Update_Button_Clicked"/>
-                        <Button x:Name="Delete_Button" 
+                    <Button x:Name="Delete_Button" 
                         Text="Delete"
                         FontSize="24"
                         FontAttributes="Bold"
@@ -78,19 +79,18 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                            BackgroundColor="#ff4040"
                         Clicked="Delete_Button_Clicked"/>
-                    </StackLayout>
                 </StackLayout>
-                <BoxView VerticalOptions="Center"
+            </StackLayout>
+            <BoxView VerticalOptions="Center"
                HorizontalOptions="Center"
                Margin="0,10, 0, 0"      
                HeightRequest="3"
                WidthRequest="400"  
                Color="#5b5d68"/>
+            <ScrollView>
                 <StackLayout>
-                   <!-- <Label Text="Cars:" FontSize="28" 
-                       FontAttributes="Bold"            
-                       TextDecorations="Underline"/>-->
                     <StackLayout x:Name="show_btn" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="true">
                         <Button Text="Show Cars" 
                                 FontSize="24"
@@ -136,7 +136,7 @@
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="2*"/>
+                                                        <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <Label Text="Model:" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
@@ -166,7 +166,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

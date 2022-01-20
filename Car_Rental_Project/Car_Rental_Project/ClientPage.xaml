@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Car_Rental_Project.ClientPage"
              IconImageSource="group_add.png">
-<ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="5, 10">
-                <StackLayout>
-                    <Grid Padding="5" HeightRequest="300" BackgroundColor="AntiqueWhite">
+    <ContentPage.Content>
+        <StackLayout Padding="5, 10">
+            <StackLayout>
+                <Grid Padding="5" HeightRequest="300" BackgroundColor="#ffe4c4">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -51,6 +50,7 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                         BackgroundColor="#318ce7"
                         Clicked="Add_Button_Clicked"/>
                         <Button x:Name="Update_Button" 
                         Text="Update"
@@ -60,6 +60,7 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                        BackgroundColor="#00cc99"
                         Clicked="Update_Button_Clicked"/>
                         <Button x:Name="Delete_Button" 
                         Text="Delete"
@@ -69,6 +70,7 @@
                         HeightRequest="60"
                         Margin="1, 0"
                         CornerRadius="15"
+                                BackgroundColor="#ff4040"
                         Clicked="Delete_Button_Clicked"/>
                     </StackLayout>
                 </StackLayout>
@@ -78,10 +80,8 @@
                HeightRequest="3"
                WidthRequest="400"  
                Color="#5b5d68"/>
+            <ScrollView>
                 <StackLayout>
-                    <!--<Label Text="Clients:" FontSize="28" 
-                       FontAttributes="Bold"            
-                       TextDecorations="Underline"/>-->
                     <StackLayout x:Name="show_btn" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="true">
                         <Button Text="Show Clients" 
                                 FontSize="24"
@@ -90,6 +90,7 @@
                                 HeightRequest="60"
                                 Margin="0, 100"
                                 CornerRadius="15"
+                                BackgroundColor="#ffe135"
                                 Clicked="Button_Clicked"/>
                     </StackLayout>
                     <ListView IsVisible="false" x:Name="CLIENTS_LIST" 
@@ -157,7 +158,8 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-            </StackLayout>
         </ScrollView>
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
