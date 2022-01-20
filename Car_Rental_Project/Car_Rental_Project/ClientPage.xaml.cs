@@ -22,16 +22,15 @@ namespace Car_Rental_Project
         private void Add_Button_Clicked(object sender, EventArgs e)
         {
             Client CL_Rec = new Client();
-            CL_Rec.FName = F_NAME.Text;
-            CL_Rec.LName = L_NAME.Text;
-            CL_Rec.LicenseID = LICENSE.Text;
-            CL_Rec.Phone = PHONE.Text;
-            CL_Rec.Address = ADDRESS.Text;
+            CL_Rec.FName = F_NAME.Text.Trim();
+            CL_Rec.LName = L_NAME.Text.Trim();
+            CL_Rec.LicenseID = LICENSE.Text.Trim();
+            CL_Rec.Phone = PHONE.Text.Trim();
+            CL_Rec.Address = ADDRESS.Text.Trim();
             CL_Rec.Gender = male_gender.IsChecked == true ? "male" : "female";
 
             ConnectionClass.Conn.Insert(CL_Rec);
-            var data = (from client in ConnectionClass.Conn.Table<Client>() select client);
-            CLIENTS_LIST.ItemsSource = data;
+            Show_List();
 
             F_NAME.Text = "";
             L_NAME.Text = "";
@@ -46,16 +45,15 @@ namespace Car_Rental_Project
             {
                 Client CL_Rec = new Client();
                 CL_Rec.ID = Selected_Item_PK;
-                CL_Rec.FName = F_NAME.Text;
-                CL_Rec.LName = L_NAME.Text;
-                CL_Rec.LicenseID = LICENSE.Text;
-                CL_Rec.Phone = PHONE.Text;
-                CL_Rec.Address = ADDRESS.Text;
+                CL_Rec.FName = F_NAME.Text.Trim();
+                CL_Rec.LName = L_NAME.Text.Trim();
+                CL_Rec.LicenseID = LICENSE.Text.Trim();
+                CL_Rec.Phone = PHONE.Text.Trim();
+                CL_Rec.Address = ADDRESS.Text.Trim();
                 CL_Rec.Gender = male_gender.IsChecked == true ? "male" : "female";
                 ConnectionClass.Conn.Update(CL_Rec);
                 Selected_Item_PK = -1;
-                var data = (from client in ConnectionClass.Conn.Table<Client>() select client);
-                CLIENTS_LIST.ItemsSource = data;
+                Show_List();
 
                 F_NAME.Text = "";
                 L_NAME.Text = "";
@@ -95,8 +93,7 @@ namespace Car_Rental_Project
             {
                 ConnectionClass.Conn.Delete<Client>(Selected_Item_PK);
                 Selected_Item_PK = -1;
-                var data = (from client in ConnectionClass.Conn.Table<Client>() select client);
-                CLIENTS_LIST.ItemsSource = data;
+                Show_List();
 
                 F_NAME.Text = "";
                 L_NAME.Text = "";
@@ -109,6 +106,10 @@ namespace Car_Rental_Project
         }
 
         private void Button_Clicked(object sender, EventArgs e)
+        {
+            Show_List();
+        }
+        private void Show_List()
         {
             show_btn.IsVisible = false;
             var data = (from client in ConnectionClass.Conn.Table<Client>() select client);

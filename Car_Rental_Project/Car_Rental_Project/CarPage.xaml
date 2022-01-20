@@ -22,40 +22,63 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Brand:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                        <Entry x:Name="Brand" Text="Toyota" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"></Entry>
+                        <Entry x:Name="CarBrand" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"></Entry>
 
                         <Label Text="Model:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
-                        <Entry x:Name="Model" Text="V8" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
+                        <Entry x:Name="CarModel" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
 
                         <Label Text="Fuel:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
-                        <Entry x:Name="Fuel" Text="2000" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
+                        <Entry x:Name="CarFuel" FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
 
                         <Label Text="Mileage:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
-                        <Entry x:Name="Mileage" Text="152000" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
+                        <Entry x:Name="CarMileage" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
 
                         <Label Text="Price:" FontSize="20" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
-                        <Entry x:Name="Price" Text="45" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
+                        <Entry x:Name="CarPrice" Keyboard="Numeric" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
 
                         <Label Text="Image:" FontSize="20" FontAttributes="Bold"  Grid.Row="5" Grid.Column="0"/>
-                        <Entry x:Name="Image" Text="CAR01.jpg" FontSize="16" Margin="0,-15,0,0" Grid.Row="5" Grid.Column="1"/>
+                        <!--<Entry x:Name="CarImage" FontSize="16" Margin="0,-15,0,0" Grid.Row="5" Grid.Column="1"/>-->
+                        <Picker x:Name="CarImage" Grid.Row="5" Grid.Column="1" FontSize="16" Margin="0,-15,0,0">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>SELECT A CAR:</x:String>
+                                    <x:String>CAR01</x:String>
+                                    <x:String>CAR02</x:String>
+                                    <x:String>CAR03</x:String>
+                                    <x:String>CAR04</x:String>
+                                    <x:String>CAR05</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
                     </Grid>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
                         <Button x:Name="Add_Button" 
                         Text="Add" 
                         FontSize="24"
                         FontAttributes="Bold"
-                        WidthRequest="150"
+                        WidthRequest="135"
                         HeightRequest="60"
-                        Margin="20, 0"
-                        CornerRadius="15"/>
+                        Margin="1, 0"
+                        CornerRadius="15"
+                        Clicked="Add_Button_Clicked"/>
                         <Button x:Name="Update_Button" 
                         Text="Update"
                         FontSize="24"
                         FontAttributes="Bold"
-                        WidthRequest="150"
+                        WidthRequest="135"
                         HeightRequest="60"
-                        Margin="20, 0"
-                        CornerRadius="15"/>
+                        Margin="1, 0"
+                        CornerRadius="15"
+                        Clicked="Update_Button_Clicked"/>
+                        <Button x:Name="Delete_Button" 
+                        Text="Delete"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        WidthRequest="135"
+                        HeightRequest="60"
+                        Margin="1, 0"
+                        CornerRadius="15"
+                        Clicked="Delete_Button_Clicked"/>
                     </StackLayout>
                 </StackLayout>
                 <BoxView VerticalOptions="Center"
@@ -65,21 +88,31 @@
                WidthRequest="400"  
                Color="#5b5d68"/>
                 <StackLayout>
-                    <Label Text="Cars:" FontSize="28" 
+                   <!-- <Label Text="Cars:" FontSize="28" 
                        FontAttributes="Bold"            
-                       TextDecorations="Underline"/>
-
-                    <ListView>
+                       TextDecorations="Underline"/>-->
+                    <StackLayout x:Name="show_btn" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" IsVisible="true">
+                        <Button Text="Show Cars" 
+                                FontSize="24"
+                                FontAttributes="Bold"
+                                WidthRequest="200"
+                                HeightRequest="60"
+                                Margin="0, 100"
+                                CornerRadius="15"
+                                Clicked="Button_Clicked"/>
+                    </StackLayout>
+                    <ListView IsVisible="false" x:Name="CARS_LIST" 
+                          HasUnevenRows="True" ItemTapped="CARS_LIST_ItemTapped">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame Padding="0" 
-                    Margin="0, 10"
-                    CornerRadius="15" 
-                    BackgroundColor="#E9E9E9" 
-                    VerticalOptions="Start" 
-                    HasShadow="True" 
-                    OutlineColor="LightGray">
+                                    Margin="0, 10"
+                                    CornerRadius="15" 
+                                    BackgroundColor="#E9E9E9" 
+                                    VerticalOptions="Start" 
+                                    HasShadow="True" 
+                                    OutlineColor="LightGray">
                                         <StackLayout Orientation="Horizontal" Padding="10, 10" >
                                             <StackLayout Padding="1">
                                                 <Frame CornerRadius="100" 
@@ -88,7 +121,7 @@
                                 HorizontalOptions="Center"
                                 Padding="0"
                                 IsClippedToBounds="True">
-                                                    <Image Source="CAR01.jpg" 
+                                                    <Image Source="{Binding ImageURL}" 
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center" 
                                     Aspect="AspectFit"/>
@@ -107,20 +140,24 @@
                                                     </Grid.ColumnDefinitions>
 
                                                     <Label Text="Model:" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                                                    <Label x:Name="Model" FontSize="18" Grid.Row="0" Grid.Column="1">Audi, RS3, Diesel</Label>
+                                                    <Label FontSize="18" Grid.Row="0" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding Brand, StringFormat='{0},'}"/>
+                                                                <Span Text="  "/>
+                                                                <Span Text="{Binding Model, StringFormat='{0},'}"/>
+                                                                <Span Text="  "/>
+                                                                <Span Text="{Binding Fuel, StringFormat='{0}'}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
 
                                                     <Label Text="Mileage:" FontSize="18" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
-                                                    <Label x:Name="Mileage" FontSize="18" Grid.Row="1" Grid.Column="1">152500 KM</Label>
+                                                    <Label Text="{Binding Mileage, StringFormat='{0} KM '}" FontSize="18" Grid.Row="1" Grid.Column="1"/>
 
                                                     <Label Text="Price:" FontSize="18" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
-                                                    <Label x:Name="Price" FontSize="18" Grid.Row="2" Grid.Column="1">$45/day</Label>
+                                                    <Label Text="{Binding Price, StringFormat='${0}/DAY '}" FontSize="18" Grid.Row="2" Grid.Column="1"/>
                                                 </Grid>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" Padding="5, 0" >
-                                                <!-- Delete -->
-                                                <ImageButton Source="delete.png" 
-                                         WidthRequest="{OnPlatform iOS=25, Android=25}" 
-                                       />
                                             </StackLayout>
                                         </StackLayout>
                                     </Frame>

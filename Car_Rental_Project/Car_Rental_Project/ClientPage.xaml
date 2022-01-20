@@ -21,53 +21,53 @@
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="First Name:" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="First Name:" FontSize="20" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
                         <Entry x:Name="F_NAME" FontSize="16" Margin="0,-15,0,0" Grid.Row="0" Grid.Column="1"/>
 
-                        <Label Text="Last Name:" FontSize="20" FontAttributes="Bold"  Grid.Row="1" Grid.Column="0"/>
+                        <Label Text="Last Name:" FontSize="20" FontAttributes="Bold" TextColor="Black"  Grid.Row="1" Grid.Column="0"/>
                         <Entry x:Name="L_NAME" FontSize="16" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1"/>
 
-                        <Label Text="License ID:" FontSize="20" FontAttributes="Bold"  Grid.Row="2" Grid.Column="0"/>
+                        <Label Text="License ID:" FontSize="20" FontAttributes="Bold"  TextColor="Black" Grid.Row="2" Grid.Column="0"/>
                         <Entry x:Name="LICENSE"  FontSize="16" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1"/>
 
-                        <Label Text="Phone:" FontSize="20" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
+                        <Label Text="Phone:" FontSize="20" FontAttributes="Bold" TextColor="Black" Grid.Row="3" Grid.Column="0" />
                         <Entry x:Name="PHONE" FontSize="16" Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"/>
 
-                        <Label Text="Address:" FontSize="20" FontAttributes="Bold"  Grid.Row="4" Grid.Column="0"/>
+                        <Label Text="Address:" FontSize="20" FontAttributes="Bold" TextColor="Black"  Grid.Row="4" Grid.Column="0"/>
                         <Entry x:Name="ADDRESS" FontSize="16" Margin="0,-15,0,0" Grid.Row="4" Grid.Column="1"/>
 
-                        <Label Text="Gender:" FontSize="20" FontAttributes="Bold"  Grid.Row="5" Grid.Column="0"/>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Grid.Row="5" Grid.Column="1" >
-                            <RadioButton x:Name="male_gender" Content="Male" Value="male" IsChecked="True" />
-                            <RadioButton x:Name="female_gender" Content="Female" Value="female"/>
+                        <Label Text="Gender:" FontSize="20" FontAttributes="Bold" TextColor="Black"  Grid.Row="5" Grid.Column="0"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0,-15,0,0" Grid.Row="5" Grid.Column="1" >
+                            <RadioButton x:Name="male_gender" Content="Male" TextColor="Black" FontSize="20" Value="male"  IsChecked="True" />
+                            <RadioButton x:Name="female_gender" Content="Female" TextColor="Black" FontSize="20" Value="female"/>
                         </StackLayout>
                     </Grid>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
                         <Button x:Name="Add_Button" 
                         Text="Add" 
                         FontSize="24"
                         FontAttributes="Bold"
-                        WidthRequest="120"
+                        WidthRequest="135"
                         HeightRequest="60"
-                        Margin="2, 0"
+                        Margin="1, 0"
                         CornerRadius="15"
                         Clicked="Add_Button_Clicked"/>
                         <Button x:Name="Update_Button" 
                         Text="Update"
                         FontSize="24"
                         FontAttributes="Bold"
-                        WidthRequest="120"
+                        WidthRequest="135"
                         HeightRequest="60"
-                        Margin="2, 0"
+                        Margin="1, 0"
                         CornerRadius="15"
                         Clicked="Update_Button_Clicked"/>
                         <Button x:Name="Delete_Button" 
                         Text="Delete"
                         FontSize="24"
                         FontAttributes="Bold"
-                        WidthRequest="120"
+                        WidthRequest="135"
                         HeightRequest="60"
-                        Margin="2, 0"
+                        Margin="1, 0"
                         CornerRadius="15"
                         Clicked="Delete_Button_Clicked"/>
                     </StackLayout>
@@ -86,9 +86,9 @@
                         <Button Text="Show Clients" 
                                 FontSize="24"
                                 FontAttributes="Bold"
-                                WidthRequest="120"
+                                WidthRequest="200"
                                 HeightRequest="60"
-                                Margin="2, 0"
+                                Margin="0, 100"
                                 CornerRadius="15"
                                 Clicked="Button_Clicked"/>
                     </StackLayout>

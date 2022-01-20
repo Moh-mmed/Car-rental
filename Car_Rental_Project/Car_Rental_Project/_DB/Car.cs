@@ -13,6 +13,6 @@ namespace Car_Rental_Project._DB
         public string Fuel { get; set; }
         public double Mileage { get; set; }
         public double Price { get; set; }
-        public string Image { get; set; }
+        public string ImageURL { get; set; }
     }
 }
